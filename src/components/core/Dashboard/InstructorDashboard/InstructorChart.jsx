@@ -1,77 +1,74 @@
-import React,{ useState } from "react"
-// import { Chart, registerables } from "chart.js"
-// import { Pie } from "react-chartjs-2"
+import React, { useState } from "react";
+import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-// Chart.register(...registerables)
+const generateRandomColors = (numColors) => {
+  const colors = [];
+  for (let i = 0; i < numColors; i++) {
+    const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)})`;
+    colors.push(color);
+  }
+  return colors;
+};
 
+const InstructorChart = ({ courses }) => {
+  const [currChart, setCurrChart] = useState("students");
 
-// export default function InstructorChart({ courses }) {
- 
-  // const [currChart, setCurrChart] = useState("students")               // State to keep track of the currently selected chart
-  
-  // const generateRandomColors = (numColors) => {                        // Function to generate random colors for the chart   
-  //   const colors = []
-  //   for (let i = 0; i < numColors; i++) {
-  //     const color = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-  //       Math.random() * 256
-  //     )}, ${Math.floor(Math.random() * 256)})`
-  //     colors.push(color)
-  //   }
-  //   return colors
-  // }
+  const chartDataStudents = courses.map((course) => ({
+    name: course.courseName,
+    value: course.totalStudentsEnrolled,
+  }));
 
-  // // Data for the chart displaying student information
-  // const chartDataStudents = {
-  //   labels: courses.map((course) => course.courseName),
-  //   datasets: [
-  //     {
-  //       data: courses.map((course) => course.totalStudentsEnrolled),
-  //       backgroundColor: generateRandomColors(courses.length),
-  //     },
-  //   ],
-  // }
+  const chartIncomeData = courses.map((course) => ({
+    name: course.courseName,
+    value: course.totalAmountGenerated,
+  }));
 
-  // // Data for the chart displaying income information
-  // const chartIncomeData = {
-  //   labels: courses.map((course) => course.courseName),
-  //   datasets: [
-  //     {
-  //       data: courses.map((course) => course.totalAmountGenerated),
-  //       backgroundColor: generateRandomColors(courses.length),
-  //     },
-  //   ],
-  // }
+  const colors = generateRandomColors(courses.length);
 
-  // // Options for the chart
-  // const options = {
-  //   maintainAspectRatio: false,
-  // }
+  return (
+    <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-richblack-800 p-6">
+      <p className="text-lg font-bold text-richblack-5">Visualize</p>
+      <div className="space-x-4 font-semibold">
+        <button
+          onClick={() => setCurrChart("students")}
+          className={`rounded-sm p-1 px-3 transition-all duration-200 ${
+            currChart === "students" ? "bg-richblack-700 text-yellow-50" : "text-yellow-400"
+          }`}
+        >
+          Students
+        </button>
+        <button
+          onClick={() => setCurrChart("income")}
+          className={`rounded-sm p-1 px-3 transition-all duration-200 ${
+            currChart === "income" ? "bg-richblack-700 text-yellow-50" : "text-yellow-400"
+          }`}
+        >
+          Income
+        </button>
+      </div>
+      <div className="relative mx-auto aspect-square h-full w-full">
+        <PieChart width={400} height={400}>
+          <Pie
+            data={currChart === "students" ? chartDataStudents : chartIncomeData}
+            cx="50%"
+            cy="50%"
+            labelLine={false}
+            outerRadius={150}
+            fill="#8884d8"
+            dataKey="value"
+          >
+            {(currChart === "students" ? chartDataStudents : chartIncomeData).map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
+            ))}
+          </Pie>
+          <Tooltip />
+          <Legend />
+        </PieChart>
+      </div>
+    </div>
+  );
+};
 
-
-  // return (
-    
-  //   <div className="flex flex-1 flex-col gap-y-4 rounded-md bg-richblack-800 p-6">
-     
-  //     <p className="text-lg font-bold text-richblack-5">Visualize</p>
-  //     <div className="space-x-4 font-semibold">
-  //       {/* Button to switch to the "students" chart */}
-  //       <button  onClick={() => setCurrChart("students")}  className={`rounded-sm p-1 px-3 transition-all duration-200 ${currChart === "students" ? "bg-richblack-700 text-yellow-50" : "text-yellow-400" }`} >
-  //         Students
-  //       </button>
-  //       {/* Button to switch to the "income" chart */}
-  //       <button onClick={() => setCurrChart("income")} className={`rounded-sm p-1 px-3 transition-all duration-200 ${currChart === "income" ? "bg-richblack-700 text-yellow-50" : "text-yellow-400" }`} >
-  //         Income
-  //       </button>
-  //     </div>
-  //     <div className="relative mx-auto aspect-square h-full w-full">
-  //       {/* Render the Pie chart based on the selected chart */}
-  //       <Pie data={currChart === "students" ? chartDataStudents : chartIncomeData} options={options} />
-  //     </div>
-   
-  //   </div>
-  
-// )}
-
-export default function InstructorChart({ courses }) {
-  return <h1>hello</h1>
-}
+export default InstructorChart;

@@ -39,6 +39,7 @@
     "react-scripts": "^3.0.1",
     "react-super-responsive-table": "^5.2.1",
     "react-type-animation": "^3.0.1",
+    "recharts":"^2.12.7",
     "showdown": "^2.1.0",
     "swiper": "^9.3.1",
     "video-react": "^0.16.0",

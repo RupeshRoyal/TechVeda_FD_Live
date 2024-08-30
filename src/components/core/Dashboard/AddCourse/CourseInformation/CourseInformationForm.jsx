@@ -43,6 +43,7 @@ export default function CourseInformationForm(){
       setValue("courseImage", course.thumbnail)
     }
     getCategories()
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const isFormUpdated = () => {
@@ -186,7 +187,7 @@ export default function CourseInformationForm(){
       </div>
     
       {/* Course Tags */}
-      <ChipInput  label="Tags"  name="courseTags" placeholder="Enter Tags and press Enter" register={register}  errors={errors} setValue={setValue} getValues={getValues} />
+      <ChipInput  label="Tags (Press Enter to add)"  name="courseTags" placeholder="Enter Tags and press Enter" register={register}  errors={errors} setValue={setValue} getValues={getValues} />
        
       {/* Course Thumbnail Image */}
       <Upload name="courseImage" label="Course Thumbnail" register={register} setValue={setValue} errors={errors}  editData={editCourse ? course?.thumbnail : null} />

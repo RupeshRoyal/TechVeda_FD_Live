@@ -53,7 +53,7 @@ const Home = () => {
         <div>
             <CodeBlocks position = {"lg:flex-row"}
                 heading = {  <div className='text-4xl font-semibold'>
-                                Unlock Your <HighlightText text={"coding potential"}/>  with our online courses
+                                Unlock Your <HighlightText text={"Coding potential"}/>  with our online courses
                             </div>
                           }
                 subheading = { "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."}
@@ -68,7 +68,7 @@ const Home = () => {
         <div>
             <CodeBlocks position = {"lg:flex-row-reverse"}
                 heading = {  <div className="w-[100%] text-4xl font-semibold lg:w-[50%]">
-                                 Start <HighlightText text={"coding in seconds"} />
+                                 Start <HighlightText text={"Coding in Seconds"} />
                             </div>
                           }
                 subheading = { "Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."}
@@ -96,7 +96,7 @@ const Home = () => {
                             <CTAButton active={true} linkto={"/signup"}>
                                 <div className='flex items-center gap-2' > Explore Full Catalog  <FaArrowRight />  </div>
                             </CTAButton>
-                            <CTAButton active = {false} linkto = {"/signup"}> Learn more </CTAButton> 
+                            <CTAButton active = {false} linkto = {"/signup"}> Learn More </CTAButton> 
                         </div>
 
                  </div>

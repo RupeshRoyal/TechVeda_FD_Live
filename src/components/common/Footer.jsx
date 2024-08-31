@@ -41,7 +41,10 @@ const Footer = () => {
               </div>
 
               <div className="flex gap-3 text-lg">
-                <FaFacebook /> <FaGoogle /> <FaTwitter />  <FaYoutube />
+                <FaFacebook className="hover:text-richblack-50 transition-all duration-200"/>
+                 <FaGoogle className="hover:text-richblack-50 transition-all duration-200"/> 
+                 <FaTwitter className="hover:text-richblack-50 transition-all duration-200"/>  
+                 <FaYoutube className="hover:text-richblack-50 transition-all duration-200"/>
               </div>
 
             </div>
@@ -69,17 +72,23 @@ const Footer = () => {
             <div className="w-[48%] lg:w-[30%] mb-7 lg:pl-0">
 
               <h1 className="text-richblack-50 font-semibold text-[16px]"> Plans </h1>
-              <div className="flex flex-col gap-2 mt-2 text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200">
-                  <Link to={Plans[0].split(" ").join("-").toLowerCase()}> {Plans[0]} </Link>
-                  <Link to={Plans[1].split(" ").join("-").toLowerCase()}> {Plans[1]} </Link>
-                  <Link to={Plans[2].split(" ").join("-").toLowerCase()}> {Plans[2]} </Link>
+              <div className="flex flex-col gap-2 mt-2 text-[14px] cursor-pointer">
+                  <Link className='hover:text-richblack-50 transition-all duration-200'
+                    to={Plans[0].split(" ").join("-").toLowerCase()}> {Plans[0]} </Link>
+                  <Link className='hover:text-richblack-50 transition-all duration-200'
+                    to={Plans[1].split(" ").join("-").toLowerCase()}> {Plans[1]} </Link>
+                  <Link className='hover:text-richblack-50 transition-all duration-200'
+                    to={Plans[2].split(" ").join("-").toLowerCase()}> {Plans[2]} </Link>
               </div>
         
               <h1 className="text-richblack-50 font-semibold text-[16px] mt-7"> Community </h1>  
-              <div className="flex flex-col gap-2 mt-2 text-[14px] cursor-pointer hover:text-richblack-50 transition-all duration-200">
-                  <Link to={Community[0].split(" ").join("-").toLowerCase()}> {Community[0]} </Link>
-                  <Link to={Community[1].split(" ").join("-").toLowerCase()}> {Community[1]} </Link>
-                  <Link to={Community[2].split(" ").join("-").toLowerCase()}> {Community[2]} </Link>
+              <div className="flex flex-col gap-2 mt-2 text-[14px]">
+                  <Link to={Community[0].split(" ").join("-").toLowerCase()}
+                    className="cursor-pointer hover:text-richblack-50 transition-all duration-200"> {Community[0]} </Link>
+                  <Link to={Community[1].split(" ").join("-").toLowerCase()}
+                    className="cursor-pointer hover:text-richblack-50 transition-all duration-200"> {Community[1]} </Link>
+                  <Link to={Community[2].split(" ").join("-").toLowerCase()}
+                    className="cursor-pointer hover:text-richblack-50 transition-all duration-200"> {Community[2]} </Link>
               </div>
          
             </div>
@@ -133,7 +142,7 @@ const Footer = () => {
              <div
            className = " hover:scale-110 text-center cursor-pointer hover:text-richblack-50 transition-all duration-200">
             Spun with   
-            <span className="inline-block hover:scale-110"> ❤️</span>
+            <span className="inline-block hover:scale-110 mr-1 ml-1"> ❤️</span>
             <a href="https://in.linkedin.com/in/yata-rupesh-31a084256"
              target="_blank" rel="noopener noreferrer">
              by Rupesh Yata

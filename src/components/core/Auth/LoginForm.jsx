@@ -30,12 +30,12 @@ function LoginForm(){
     <form onSubmit = {handleOnSubmit} className="flex flex-col w-full gap-y-4 mt-6">
 
         <label className='w-full'>
-            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'> Email Address <sup className='text-pink-200'>*</sup>  </p>
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'> Email Address (dummystudent123@gmail.com)<sup className='text-pink-200'>*</sup>  </p>
             <input required type="email"  value = {email} onChange={handleOnChange} placeholder="Enter email address" name="email"  style = {{boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)", }} className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]' />
         </label>
 
         <label className='relative'>
-            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>  Password <sup className='text-pink-200'>*</sup>  </p>
+            <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>  Password (Student@123) <sup className='text-pink-200'>*</sup>  </p>
             <input required type= {showPassword ? ("text") : ("password")}  value = {password} onChange={handleOnChange} placeholder="Enter Password" name="password" style={{boxShadow: "inset 0px -1px 0px rgba(255, 255, 255, 0.18)"}} className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]' />   
 
             <span className='absolute right-3 top-[38px] cursor-pointer'  onClick={() => setShowPassword((prev) => !prev)}>
